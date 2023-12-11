@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Random;
 public class Main {
-    static int moves = 1;
     static boolean Continue = true;
     static boolean roomDone = false;
     public static boolean start (String input) {
@@ -16,12 +15,15 @@ public class Main {
      */
     public static String shenanigan() {
         String[] shenanigans = {
-                "washing dishes",
-                "eating apple pie",
                 "creating an entire video game based on the Sopranos television series",
-                "doing business with the family dog",
+                "running a high stakes gambling ring",
                 "eating gabagool",
-                "watching tv"
+                "watching television",
+                "sabotaging the fuse box",
+                "getting audited by the IRS",
+                "activating nuclear launch codes before they expire",
+                "falsifying medical records",
+                "ordering a new dust filter for his Hoover MaxExtract PressurePro model 60"
 
         };
         Random rand = new Random();
@@ -39,7 +41,8 @@ public class Main {
         Elf elf1 = new Elf(elfName);
         while(!roomDone) {
             System.out.println("Would you like to add a room to consider for creating shenanigans?");
-            if(input.nextLine().equalsIgnoreCase("no") || input.nextLine().equalsIgnoreCase("n")) roomDone = true;
+            String answer = input.nextLine();
+            if(answer.equalsIgnoreCase("no") || answer.equalsIgnoreCase("n")) roomDone = true;
             else {
                 System.out.println("Ok, please input a room in your house:");
                 rooms.add(input.nextLine());
@@ -50,11 +53,11 @@ public class Main {
             System.out.println("Would you like a shenanigan idea for " + elf1.getName() + "?");
             if(start(input.nextLine())) {
                 //Unable to call room randomizer for some reason so went ahead and added the whole of the method to run without a call
-                System.out.println("For shenanigan #" + moves + "," + elf1.getName() + " is "  + shenanigan() + " in " + rooms.get((int) (Math.random() * rooms.size())));
-                moves++;
+                System.out.println("For shenanigan #" + elf1.getMoves() + ", " + elf1.getName() + " is "  + shenanigan() + " in the " + rooms.get((int)(Math.random() * rooms.size())) + "!");
+                elf1.setMoves(elf1.getMoves() + 1);
 
             }
         }
-        System.out.println("Good luck with the shenanigans!");
+        System.out.println("Ok then, good luck with the shenanigans!");
     }
 }
