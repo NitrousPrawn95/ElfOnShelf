@@ -1,11 +1,18 @@
-public class Shenanigan {
+public class Elf {
     private String name;
     private int moves;
-    String shenanigan;
-    public Shenanigan() {
+    private String shenanigan;
+    public Elf() {
 name = "bob";
-moves = -1;
-shenanigan = "null";
+moves = 1;
+shenanigan = "";
     }
-
+    public Elf(String name) {
+        this.name = name;
+        moves = 1;
+        shenanigan = "";
+    }
+    public String getName() {
+        return name;
+    }
 }
