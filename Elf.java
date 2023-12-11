@@ -15,4 +15,10 @@ shenanigan = "";
     public String getName() {
         return name;
     }
+    public int getMoves() {
+        return moves;
+    }
+    public void setMoves(int moves) {
+        this.moves = moves;
+    }
 }
